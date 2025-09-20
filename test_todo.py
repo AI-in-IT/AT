@@ -26,3 +26,25 @@ def test_form(page):
     todo_item.get_by_role('checkbox').first.click()
     expect(todo_item.first).to_have_class('completed')
 
+def test_demoqa_elements_text(page):
+    page.goto("https://demoqa.com/text-box")
+    # expect(page).to_have_url("https://demoqa.com/")
+    # page.locator(".category-cards >> .card mt-4 top-card").first.click()
+
+    #
+    # page.locator("path").first.click()
+    # page.get_by_role("listitem").filter(has_text="Text Box").click()
+    # page.get_by_role("textbox", name="Full Name").click()
+    # page.get_by_role("textbox", name="Full Name").fill("Andre")
+    # page.get_by_role("textbox", name="Full Name").press("Tab")
+    # page.get_by_role("textbox", name="name@example.com").click()
+    # page.get_by_role("textbox", name="name@example.com").fill("andre@ffd.re")
+    # page.get_by_role("textbox", name="Current Address").click()
+    # page.get_by_role("textbox", name="Current Address").fill("MPEI")
+    # page.locator("#permanentAddress").click()
+    # page.locator("#permanentAddress").fill("AAM")
+    # page.get_by_role("button", name="Submit").click()
+    # page.get_by_text("Name:Andre").click()
+    # page.get_by_text("Email:andre@ffd.re").click()
+    # page.get_by_text("Current Address :MPEI").click()
+    # page.get_by_text("Permananet Address :AAM").click()
