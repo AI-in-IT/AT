@@ -1,5 +1,5 @@
 from playwright.sync_api import Page,Playwright, sync_playwright, expect
-
+import re
 
 class MainPage:
     def __init__(self, page: Page):
@@ -55,3 +55,19 @@ class AccessGroupPage:
         expect(self.search_input).to_have_value(name)
         expect(self.page.get_by_text(name)).to_have_count(1)
         expect(self.page.get_by_text(name)).to_be_visible()
+
+class RequestPage:
+    def __init__(self, page: Page):
+        self.page = page
+        self.add_button = page.locator("app-table-toolbar").get_by_role("button").first
+        self.name_input = page.locator("[data-test-id='panel-element-name'] input")
+        self.save_button = page.locator("[data-test-id='panel-save-button']")
+        self.active_checkbox = page.locator("[data-test-id='panel-element-active'] input")
+        self.search_input = page.get_by_role("textbox", name="Поиск")
+
+
+
+    def get_ID(self):
+        request_ID = self.page.get_by_role("heading", name=re.compile(r"Заявка № \d+")).text_content()
+        request_ID = re.search(r"Заявка №\s*(\d+)", request_ID).group(1)
+        return request_ID

@@ -24,9 +24,8 @@ def test_passoffice(page,login='admin',password='admin'):
     accessgroup_page.create(access_group_name)
 
     # # создаем гостевую заявку на нового посетителя
-    # visitor_1_surname = 'Нехорошев'
-    # visitor_1_name = 'Алексей'
-    # # pass_1_number = 123
+    visitor_1_surname = 'Нехорошев'
+    visitor_1_name = 'Алексей'
     #
     # page.get_by_role("combobox", name="Поиск").click()
     # # page.get_by_role("combobox", name="Поиск").press("ControlOrMeta+a")
